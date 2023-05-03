@@ -4,6 +4,8 @@ Upon first execution, you will be prompted to select a folder to save the databa
 
 The interface consists of a grid with customer names, a filter to aid in searching, and a side menu to edit customer credits.
 
+![screenshot](/screenshot.png?raw=true "UI Screenshot")
+
 This project was developed customly for a client, but it is available for use under the MIT license.
 
 ## Licensing

@@ -202,5 +202,35 @@ namespace promopepto
                 e.CellStyle.BackColor = Color.LightGreen;
             }
         }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                Client selectedClient = (Client)dataGridView1.CurrentRow.DataBoundItem;
+                string name = Interaction.InputBox("Inserire nuovo nome del cliente", "Modifica Cliente", selectedClient.Name);
+                name = Regex.Replace(name, @"\s+", " ").Trim();
+                if (name.Length <= 0)
+                {
+                    return;
+                }
+
+                if (clients.Find(x => x.Name.ToLower() == name.ToLower()) != null)
+                {
+                    MessageBox.Show($"Il cliente {name} essite giá", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show($"Modifica {selectedClient.Name} per {name}. Sei sicuro?", "Modifica cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                {
+                    string oldName = selectedClient.Name;
+                    selectedClient.Name = name;
+                    UpdateList();
+                    db.Save(clients);
+                    logger.Log($"client {oldName} changed to {name}");
+                }
+            }
+        }
     }
 }

@@ -31,6 +31,7 @@
             buttonAdd = new Button();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            buttonEdit = new Button();
             buttonDelete = new Button();
             progressBarCredits = new ProgressBar();
             buttonReset = new Button();
@@ -51,7 +52,7 @@
             // 
             buttonAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonAdd.Location = new Point(14, 475);
+            buttonAdd.Location = new Point(14, 585);
             buttonAdd.Margin = new Padding(3, 4, 3, 4);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(519, 49);
@@ -73,6 +74,7 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            groupBox1.Controls.Add(buttonEdit);
             groupBox1.Controls.Add(buttonDelete);
             groupBox1.Controls.Add(progressBarCredits);
             groupBox1.Controls.Add(buttonReset);
@@ -85,15 +87,26 @@
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(539, 19);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(351, 505);
+            groupBox1.Size = new Size(351, 615);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Cliente";
             // 
+            // buttonEdit
+            // 
+            buttonEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonEdit.Location = new Point(7, 516);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(338, 44);
+            buttonEdit.TabIndex = 8;
+            buttonEdit.Text = "Modifica Cliente";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
             // buttonDelete
             // 
             buttonDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttonDelete.Location = new Point(7, 456);
+            buttonDelete.Location = new Point(7, 566);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(338, 44);
             buttonDelete.TabIndex = 3;
@@ -113,7 +126,7 @@
             // buttonReset
             // 
             buttonReset.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttonReset.Location = new Point(7, 344);
+            buttonReset.Location = new Point(7, 384);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(338, 105);
             buttonReset.TabIndex = 2;
@@ -125,7 +138,7 @@
             // 
             buttonDecrement.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             buttonDecrement.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonDecrement.Location = new Point(7, 233);
+            buttonDecrement.Location = new Point(7, 273);
             buttonDecrement.Name = "buttonDecrement";
             buttonDecrement.Size = new Size(166, 105);
             buttonDecrement.TabIndex = 0;
@@ -137,7 +150,7 @@
             // 
             buttonIncrement.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             buttonIncrement.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonIncrement.Location = new Point(178, 233);
+            buttonIncrement.Location = new Point(178, 273);
             buttonIncrement.Name = "buttonIncrement";
             buttonIncrement.Size = new Size(166, 105);
             buttonIncrement.TabIndex = 1;
@@ -196,7 +209,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(519, 397);
+            dataGridView1.Size = new Size(519, 507);
             dataGridView1.TabIndex = 8;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
@@ -225,7 +238,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(904, 535);
+            ClientSize = new Size(904, 645);
             Controls.Add(label1);
             Controls.Add(labelCount);
             Controls.Add(dataGridView1);
@@ -258,5 +271,6 @@
         private DataGridView dataGridView1;
         private Label labelCount;
         private Label label1;
+        private Button buttonEdit;
     }
 }
